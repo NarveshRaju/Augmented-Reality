@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Augmented Reality</title>
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      position: relative;
+    }
+    
+    #ar-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.9);
+      z-index: 999;
+    }
+    
+    #ar-container h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    
+    #ar-container button {
+      padding: 10px 20px;
+      font-size: 24px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    #ar-container button:hover {
+      background-color: #0056b3;
+    }
+    
+    #ar-container button:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px #fff;
+    }
+    
+    a-scene {
+      width: 100%;
+      height: calc(100vh - 40px); /* Subtracting the watermark height */
+    }
+    
+    a-scene h1 {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 48px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    }
+    
+    .watermark {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+  </style>
+</head>
+
+<body>
+  <a-scene>
+    <a-gltf-model src="scene.gltf"></a-gltf-model>
+    <a-entity
+      look-controls
+      wasd-controls
+      camera
+      zoom="enabled: true"
+      position="0 0 4"
+    ></a-entity>
+    <h1></h1>
+  </a-scene>
+
+  <div id="ar-container">
+    <h2>Try this 3D Model</h2>
+    <button onclick="showAR()">Activate AR</button>
+  </div>
+
+  <div class="watermark">Designed by Narvesh Raju</div>
+
+  <script>
+    function showAR() {
+      var arContainer = document.getElementById("ar-container");
+      arContainer.style.display = "none";
+      // Code to activate AR experience
+    }
+  </script>
+</body>
+
+</html>
